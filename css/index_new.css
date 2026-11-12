@@ -1,0 +1,340 @@
+/* =========================
+   PENGATURAN DASAR
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #e5eee5;
+    color: #4b2532;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    background-color: #f9faf6;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(70, 30, 45, 0.15);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: linear-gradient(135deg, #572536, #7b3d50);
+    color: #f4f0e8;
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #dce8dc;
+    font-size: 14px;
+}
+
+
+/* =========================
+   FOTO PROFIL
+========================= */
+
+.profile-photo {
+    text-align: center;
+    margin-bottom: 35px;
+    padding: 25px;
+    background-color: #e8f0e7;
+    border-radius: 15px;
+    border: 1px solid #d1dfd0;
+}
+
+.profile-photo img {
+    display: block;
+    width: 165px;
+    height: 165px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 6px solid #f9faf6;
+    outline: 3px solid #7b3d50;
+    box-shadow: 0 5px 15px rgba(70, 30, 45, 0.15);
+    margin: 0 auto 15px;
+}
+
+.profile-photo h3 {
+    color: #642c40;
+    margin-bottom: 6px;
+}
+
+.profile-photo p {
+    color: #718471;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   TOMBOL INSTAGRAM DAN PROJECT
+========================= */
+
+.profile-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.instagram-link,
+.project-link {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.instagram-link {
+    background-color: #5b293c;
+    color: white;
+    border: 2px solid #5b293c;
+}
+
+.instagram-link:hover {
+    background-color: #91aa91;
+    border-color: #91aa91;
+    color: #40232d;
+}
+
+.project-link {
+    background-color: transparent;
+    color: #5b293c;
+    border: 2px solid #5b293c;
+}
+
+.project-link:hover {
+    background-color: #5b293c;
+    color: white;
+}
+
+
+/* =========================
+   JUDUL DAN TABEL
+========================= */
+
+h2 {
+    color: #642c40;
+    margin-bottom: 18px;
+    padding-left: 12px;
+    border-left: 5px solid #91aa91;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 35px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+th {
+    background-color: #5b293c;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #d8e3d7;
+}
+
+tr:nth-child(even) {
+    background-color: #e8f0e7;
+}
+
+tr:nth-child(odd) {
+    background-color: #f5f7f1;
+}
+
+tr:hover {
+    background-color: #d5e4d4;
+    transition: 0.3s;
+}
+
+td:first-child {
+    font-weight: bold;
+    color: #682f43;
+    width: 35%;
+}
+
+
+/* =========================
+   PROJECT SAYA
+========================= */
+
+.project-table td {
+    vertical-align: top;
+}
+
+.project-title {
+    font-weight: bold;
+    color: #682f43;
+    font-size: 16px;
+}
+
+.project-desc {
+    color: #536653;
+    line-height: 1.6;
+    margin-top: 7px;
+}
+
+
+/* =========================
+   PROJECT GALLERY
+========================= */
+
+.project-gallery {
+    margin-top: 10px;
+    margin-bottom: 35px;
+    padding: 25px;
+    background-color: #e8f0e7;
+    border: 1px solid #d1dfd0;
+    border-radius: 15px;
+    scroll-margin-top: 25px;
+}
+
+.gallery-description {
+    color: #718471;
+    font-size: 14px;
+    margin-top: -8px;
+    margin-bottom: 20px;
+}
+
+.project-card {
+    background-color: #f9faf6;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #d1dfd0;
+    box-shadow: 0 5px 15px rgba(70, 30, 45, 0.10);
+}
+
+.project-card img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    background-color: #f0f4ed;
+    padding: 10px;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h3 {
+    color: #642c40;
+    margin-bottom: 8px;
+}
+
+.project-info p {
+    color: #536653;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.project-category {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 5px 12px;
+    background-color: #e8f0e7;
+    color: #642c40;
+    border: 1px solid #91aa91;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 18px;
+    background-color: #5b293c;
+    color: #f4f0e8;
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+    .container {
+        padding: 18px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    td, th {
+        padding: 11px 9px;
+        font-size: 13px;
+    }
+
+    .profile-photo img {
+        width: 165px;
+        height: 165px;
+        border-radius: 50%;
+    }
+
+    .profile-buttons {
+        gap: 8px;
+    }
+
+    .instagram-link,
+    .project-link {
+        padding: 9px 16px;
+        font-size: 12px;
+    }
+
+    .project-gallery {
+        padding: 15px;
+    }
+
+    .project-card img {
+        height: 220px;
+    }
+}

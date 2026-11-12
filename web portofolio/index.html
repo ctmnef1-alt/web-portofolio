@@ -1,0 +1,1066 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - Beatrice Christabel</title>
+    <link rel="icon" type="image/png" href="fav-logo1.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #e5eee5;
+            color: #4b2532;
+            padding: 40px 20px;
+            transition: background-color 0.4s, color 0.4s;
+            position: relative;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #f9faf6;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(70, 30, 45, 0.15);
+            transition: background-color 0.4s, box-shadow 0.4s;
+            position: relative;
+        }
+
+        .page {
+            display: block;
+        }
+
+        .page.hidden {
+            display: none;
+        }
+
+        .page-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .back-page-nav {
+            justify-content: flex-start;
+        }
+
+        .nav-button {
+            appearance: none;
+            border: none;
+            border-radius: 999px;
+            padding: 11px 24px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+            box-shadow: 0 6px 18px rgba(91, 41, 60, 0.15);
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(91, 41, 60, 0.2);
+        }
+
+        .back-page-btn {
+            position: relative;
+            border: 1.5px solid #5b293c;
+            background: transparent;
+            color: #5b293c;
+            box-shadow: 0 0 7px rgba(243, 165, 184, 0.24), 0 0 11px rgba(159, 201, 232, 0.18), 0 0 14px rgba(169, 216, 178, 0.16), inset 0 0 6px rgba(91, 41, 60, 0.05);
+        }
+
+        .back-page-btn:hover {
+            background: rgba(91, 41, 60, 0.06);
+            box-shadow: 0 0 9px rgba(243, 165, 184, 0.42), 0 0 14px rgba(159, 201, 232, 0.3), 0 0 18px rgba(169, 216, 178, 0.24), inset 0 0 8px rgba(91, 41, 60, 0.08);
+        }
+
+        .top-brand {
+            position: absolute;
+            top: 12px;
+            left: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px 12px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));
+            border: 1px solid rgba(91, 41, 60, 0.12);
+            border-radius: 12px 12px 10px 10px;
+            box-shadow: 0 18px 26px rgba(70, 30, 45, 0.12), 0 8px 14px rgba(70, 30, 45, 0.08);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 5;
+            cursor: grab;
+            user-select: none;
+            transform: rotate(-2deg);
+            transform-origin: center top;
+            transition: transform 0.28s ease, box-shadow 0.28s ease;
+            animation: floatingBoard 3s ease-in-out infinite;
+        }
+
+        .top-brand.dragging {
+            cursor: grabbing;
+            transition: none;
+            box-shadow: 0 26px 28px rgba(70, 30, 45, 0.15);
+        }
+
+        .top-brand:hover {
+            transform: rotate(-2deg) translateY(-3px);
+            box-shadow: 0 22px 30px rgba(70, 30, 45, 0.14), 0 10px 16px rgba(70, 30, 45, 0.08);
+        }
+
+        .top-brand.bump {
+            animation: bounceBoard 0.55s ease-in-out;
+        }
+
+        @keyframes floatingBoard {
+            0%, 100% {
+                transform: rotate(-2deg) translateY(0px);
+            }
+            50% {
+                transform: rotate(-2deg) translateY(-4px);
+            }
+        }
+
+        @keyframes bounceBoard {
+            0%   { transform: rotate(-2deg) translateY(0); }
+            26%  { transform: rotate(-3deg) translateY(6px); }
+            52%  { transform: rotate(-1deg) translateY(-4px); }
+            76%  { transform: rotate(-2.5deg) translateY(2px); }
+            100% { transform: rotate(-2deg) translateY(0); }
+        }
+
+        .brand-mark {
+            display: block;
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .brand-name {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #5b293c;
+            line-height: 1;
+        }
+
+        /* TOGGLE LIGHT MODE & DARK MODE */
+
+        .theme-switch {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 65px;
+            height: 34px;
+            cursor: pointer;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            inset: 0;
+            background-color: #e8f0e7;
+            border: 2px solid #5b293c;
+            border-radius: 30px;
+            transition: 0.4s;
+        }
+
+        .toggle-slider::before {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            left: 3px;
+            top: 3px;
+            background-color: #5b293c;
+            border-radius: 50%;
+            transition: 0.4s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background-color: #49303d;
+            border-color: #a96f84;
+        }
+
+        .toggle-switch input:checked + .toggle-slider::before {
+            transform: translateX(31px);
+            background-color: #e5cbd4;
+        }
+
+        .toggle-switch:hover .toggle-slider {
+            box-shadow: 0 0 12px rgba(91, 41, 60, 0.28);
+            transform: translateY(-1px);
+        }
+
+        .toggle-switch:hover .toggle-slider::before {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .toggle-switch input:focus-visible + .toggle-slider {
+            outline: 3px solid #91aa91;
+            outline-offset: 3px;
+        }
+
+        /* HEADER */
+
+        header {
+            position: relative;
+            background: linear-gradient(135deg, #572536, #7b3d50);
+            color: #f4f0e8;
+            text-align: center;
+            padding: 52px 20px 40px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #dce8dc;
+            font-size: 14px;
+        }
+
+        /* FOTO PROFIL */
+
+        .profile-photo {
+            text-align: center;
+            margin-bottom: 35px;
+            padding: 25px;
+            background-color: #e8f0e7;
+            border-radius: 15px;
+            border: 1px solid #d1dfd0;
+        }
+
+        .profile-photo img {
+            display: block;
+            width: 165px;
+            height: 165px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            border: 6px solid #f9faf6;
+            outline: 3px solid #7b3d50;
+            box-shadow: 0 5px 15px rgba(70, 30, 45, 0.15);
+            margin: 0 auto 15px;
+
+            /* ANIMASI FOTO */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+
+        /* EFEK FOTO MENIMBUL SAAT HOVER */
+
+        .profile-photo img:hover {
+            transform: translateY(-10px) scale(1.06);
+            box-shadow: 0 18px 30px rgba(70, 30, 45, 0.3);
+        }
+
+        .profile-photo h3 {
+            color: #642c40;
+            margin-bottom: 6px;
+        }
+
+        .profile-photo p {
+            color: #718471;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        /* TOMBOL INSTAGRAM DAN PROJECT */
+
+        .profile-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .instagram-link,
+        .project-link {
+            display: inline-block;
+            padding: 10px 22px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+            transform: translateY(0);
+        }
+
+        .instagram-link,
+        .project-link {
+            box-shadow: 0 4px 10px rgba(91, 41, 60, 0.12);
+        }
+
+        .instagram-link {
+            background-color: #5b293c;
+            color: white;
+            border: 2px solid #5b293c;
+        }
+
+        .instagram-link:hover {
+            background-color: #91aa91;
+            border-color: #91aa91;
+            color: #40232d;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 18px rgba(91, 41, 60, 0.22);
+        }
+
+        .project-link {
+            background-color: transparent;
+            color: #5b293c;
+            border: 2px solid #5b293c;
+        }
+
+        .project-link:hover {
+            background-color: #5b293c;
+            color: white;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 18px rgba(91, 41, 60, 0.22);
+        }
+
+        /* JUDUL DAN TABEL */
+
+        h2 {
+            color: #642c40;
+            margin-bottom: 18px;
+            padding-left: 12px;
+            border-left: 5px solid #91aa91;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 35px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        th {
+            background-color: #5b293c;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #d8e3d7;
+        }
+
+        tr:nth-child(even) {
+            background-color: #e8f0e7;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f5f7f1;
+        }
+
+        tr:hover {
+            background-color: #d5e4d4;
+            transition: 0.3s;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            color: #682f43;
+            width: 35%;
+        }
+
+        .project-table td {
+            vertical-align: top;
+        }
+
+        .project-title {
+            font-weight: bold;
+            color: #682f43;
+            font-size: 16px;
+        }
+
+        .project-desc {
+            color: #536653;
+            line-height: 1.6;
+            margin-top: 7px;
+        }
+
+        /* PROJECT GALLERY */
+
+        .project-gallery {
+            margin-top: 10px;
+            margin-bottom: 35px;
+            padding: 25px;
+            background-color: #e8f0e7;
+            border: 1px solid #d1dfd0;
+            border-radius: 15px;
+            scroll-margin-top: 25px;
+        }
+
+        .gallery-description {
+            color: #718471;
+            font-size: 14px;
+            margin-top: -8px;
+            margin-bottom: 20px;
+        }
+
+        .project-card {
+            background-color: #f9faf6;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #d1dfd0;
+            box-shadow: 0 5px 15px rgba(70, 30, 45, 0.10);
+        }
+
+        .project-card img {
+            display: block;
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            background-color: #f0f4ed;
+            padding: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover img {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 18px 30px rgba(70, 30, 45, 0.12);
+            filter: saturate(1.08);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            color: #642c40;
+            margin-bottom: 8px;
+        }
+
+        .project-info p {
+            color: #536653;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .project-category {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 5px 12px;
+            background-color: #e8f0e7;
+            color: #642c40;
+            border: 1px solid #91aa91;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        /* MODAL FOTO FULLSCREEN */
+
+        .image-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 18, 17, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            z-index: 1000;
+        }
+
+        .image-modal.show {
+            display: flex;
+        }
+
+        .image-modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 20px;
+            background: #f9faf6;
+            padding: 14px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+        }
+
+        .image-modal-content img {
+            display: block;
+            width: min(75vw, 700px);
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #f0f4ed;
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 50%;
+            background: #5b293c;
+            color: #fff;
+            font-size: 24px;
+            line-height: 1;
+            cursor: pointer;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-modal-close:hover {
+            background: #7b3d50;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 18px;
+            background-color: #5b293c;
+            color: #f4f0e8;
+            border-radius: 12px;
+            font-size: 13px;
+        }
+
+        /* DARK MODE */
+
+        body.dark-mode {
+            background-color: #151c19;
+            color: #e5e9df;
+        }
+
+        body.dark-mode .container {
+            background-color: #222d28;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+        }
+
+        body.dark-mode .top-brand {
+            background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.1));
+            border-color: rgba(255, 255, 255, 0.24);
+            box-shadow: 0 18px 28px rgba(255, 255, 255, 0.14), 0 0 18px rgba(255, 255, 255, 0.12);
+        }
+
+        body.dark-mode .brand-name {
+            color: #f7efef;
+        }
+
+        body.dark-mode header {
+            background: linear-gradient(135deg, #182a25, #49303d);
+        }
+
+        body.dark-mode .profile-photo,
+        body.dark-mode .project-gallery {
+            background-color: #2d3b34;
+            border-color: #48594d;
+        }
+
+        body.dark-mode .profile-photo img {
+            border-color: #222d28;
+            outline-color: #a96f84;
+        }
+
+        body.dark-mode .profile-photo img:hover {
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark-mode .profile-photo h3,
+        body.dark-mode h2,
+        body.dark-mode .project-title,
+        body.dark-mode .project-info h3,
+        body.dark-mode td:first-child {
+            color: #d9b3c0;
+        }
+
+        body.dark-mode .profile-photo p,
+        body.dark-mode .gallery-description,
+        body.dark-mode .project-desc,
+        body.dark-mode .project-info p {
+            color: #b9c9b8;
+        }
+
+        body.dark-mode .project-link {
+            color: #e5cbd4;
+            border-color: #a96f84;
+        }
+
+        body.dark-mode .instagram-link,
+        body.dark-mode .project-link {
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.16), 0 0 8px rgba(255, 255, 255, 0.12);
+        }
+
+        body.dark-mode .back-page-btn {
+            color: #fff;
+        }
+
+        body.dark-mode .project-link:hover {
+            background-color: #754357;
+            color: white;
+        }
+
+        body.dark-mode .instagram-link:hover,
+        body.dark-mode .project-link:hover {
+            box-shadow: 0 10px 18px rgba(255, 255, 255, 0.24), 0 0 12px rgba(255, 255, 255, 0.18);
+        }
+
+        body.dark-mode table th {
+            background-color: #49303d;
+        }
+
+        body.dark-mode table td {
+            border-bottom-color: #45544a;
+        }
+
+        body.dark-mode tr:nth-child(even) {
+            background-color: #2d3b34;
+        }
+
+        body.dark-mode tr:nth-child(odd) {
+            background-color: #26322c;
+        }
+
+        body.dark-mode tr:hover {
+            background-color: #3c5044;
+        }
+
+        body.dark-mode .project-card {
+            background-color: #26322c;
+            border-color: #48594d;
+        }
+
+        body.dark-mode .project-card img {
+            background-color: #202a24;
+        }
+
+        body.dark-mode .project-category {
+            background-color: #394b40;
+            color: #e5cbd4;
+            border-color: #91aa91;
+        }
+
+        body.dark-mode footer {
+            background-color: #182a25;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+            td, th {
+                padding: 11px 9px;
+                font-size: 13px;
+            }
+
+            .profile-photo img {
+                width: 165px;
+                height: 165px;
+            }
+
+            .profile-buttons {
+                gap: 8px;
+            }
+
+            .instagram-link,
+            .project-link {
+                padding: 9px 16px;
+                font-size: 12px;
+            }
+
+            .project-gallery {
+                padding: 15px;
+            }
+
+            .project-card img {
+                height: 220px;
+            }
+        }
+
+        /* MENGURANGI ANIMASI JIKA DIPERLUKAN */
+
+        @media (prefers-reduced-motion: reduce) {
+            .profile-photo img {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-brand" aria-label="Brand logo" tabindex="0">
+        <img class="brand-mark" src="fav-logo1.png" alt="">
+        <span class="brand-name">BtZz</span>
+    </div>
+
+    <div class="container">
+
+        <div id="pageOne" class="page">
+
+        <!-- TOGGLE LIGHT MODE & DARK MODE -->
+
+        <div class="theme-switch">
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+
+        <!-- HEADER -->
+
+        <header>
+            <h1>Welcome to My Profile</h1>
+            <p>Beatrice Christabel | Personal Profile & Projects</p>
+        </header>
+
+        <!-- FOTO PROFIL DAN TOMBOL -->
+
+        <div class="profile-photo">
+
+            <img
+                src="download (7).jpe"
+                alt="Foto Profil Beatrice"
+            >
+
+            <h3>Beatrice Christabel</h3>
+            <p>Welcome to my little space ♡</p>
+
+            <div class="profile-buttons">
+
+                <a
+                    href="https://www.instagram.com/iyz_beat/#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="instagram-link"
+                >
+                    My Instagram
+                </a>
+
+                <a
+                    href="#my-project"
+                    class="project-link"
+                >
+                    My Project
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- PROFIL SAYA -->
+
+        <h2>My Profile</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Informasi</th>
+                    <th>Detail</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Nama</td>
+                    <td>Beatrice Christabel</td>
+                </tr>
+
+                <tr>
+                    <td>Tempat/Tanggal Lahir</td>
+                    <td>Pangkalpinang, 29 Mei 2010</td>
+                </tr>
+
+                <tr>
+                    <td>Profesi</td>
+                    <td>Pelajar</td>
+                </tr>
+
+                <tr>
+                    <td>Alamat</td>
+                    <td>Selindung Baru</td>
+                </tr>
+
+                <tr>
+                    <td>Email</td>
+                    <td>ctmnef1@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- PROJECT SAYA -->
+
+        <h2>My Project</h2>
+
+        <table class="project-table">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Nama Project & Deskripsi</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>01</td>
+                    <td>
+                        <div class="project-title">
+                            Website Edukasi Pelajar
+                        </div>
+
+                        <div class="project-desc">
+                            Website sederhana yang berisi informasi,
+                            materi pembelajaran, dan pengetahuan umum
+                            untuk membantu pelajar belajar secara online.
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>02</td>
+                    <td>
+                        <div class="project-title">
+                            Digital School Planner
+                        </div>
+
+                        <div class="project-desc">
+                            Platform digital untuk membantu pelajar
+                            mengatur jadwal belajar, mencatat tugas,
+                            serta mengelola kegiatan sekolah agar lebih teratur.
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- FOOTER -->
+
+        <footer>
+            © 2026 Beatrice Christabel | My Personal Website
+        </footer>
+
+        </div>
+
+        <div id="pageTwo" class="page hidden" aria-live="polite">
+
+            <!-- PROJECT GALLERY / KARYA -->
+            <section class="project-gallery" id="my-project">
+                <h2>Project Gallery</h2>
+                <p class="gallery-description">
+                    Beberapa hasil karya dan project yang pernah saya buat.
+                </p>
+                <div class="project-card">
+                    <img
+                        src="project.png"
+                        alt="Foto desain kemasan makanan"
+                    >
+                    <div class="project-info">
+                        <h3>Desain Kemasan Makanan</h3>
+                        <p>
+                            Salah satu karya yang pernah saya buat adalah
+                            desain kemasan makanan. Dalam project ini,
+                            saya belajar mengembangkan kreativitas melalui
+                            pemilihan warna, bentuk, dan tampilan kemasan
+                            agar produk terlihat lebih menarik.
+                        </p>
+                        <span class="project-category">
+                            Desain Grafis
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="page-nav back-page-nav">
+                <button type="button" class="nav-button back-page-btn" id="backPageBtn">Back to Page 1</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="image-modal" id="imageModal" aria-modal="true" role="dialog" aria-label="Foto diperbesar">
+        <div class="image-modal-content">
+            <button class="image-modal-close" type="button" aria-label="Tutup foto">&times;</button>
+            <img src="download (7).jpe" alt="Foto diperbesar" id="modalImage">
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT TOGGLE MODE -->
+
+    <script>
+        const themeToggle = document.getElementById("themeToggle");
+        const profileImage = document.querySelector(".profile-photo img");
+        const galleryImages = document.querySelectorAll(".project-card img");
+        const imageModal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+        const modalClose = document.querySelector(".image-modal-close");
+        const topBrand = document.querySelector(".top-brand");
+        const pageOne = document.getElementById("pageOne");
+        const pageTwo = document.getElementById("pageTwo");
+        const backPageBtn = document.getElementById("backPageBtn");
+
+        function showPage(targetPage) {
+            pageOne.classList.toggle("hidden", targetPage !== pageOne);
+            pageTwo.classList.toggle("hidden", targetPage !== pageTwo);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        backPageBtn.addEventListener("click", function () {
+            showPage(pageOne);
+        });
+
+        document.querySelector(".project-link").addEventListener("click", function (event) {
+            event.preventDefault();
+            showPage(pageTwo);
+        });
+
+        function bounceBrand() {
+            topBrand.classList.remove("bump");
+            void topBrand.offsetWidth;
+            topBrand.classList.add("bump");
+        }
+
+        let isDragging = false;
+        let dragOffsetX = 0;
+        let dragOffsetY = 0;
+        const brandStartX = 18;
+        const brandStartY = 12;
+
+        function setBrandPosition(x, y) {
+            topBrand.style.left = `${x}px`;
+            topBrand.style.top = `${y}px`;
+        }
+
+        function resetBrandPosition() {
+            topBrand.style.left = `${brandStartX}px`;
+            topBrand.style.top = `${brandStartY}px`;
+            topBrand.classList.add("bump");
+            setTimeout(() => topBrand.classList.remove("bump"), 550);
+        }
+
+        topBrand.addEventListener("pointerdown", function (event) {
+            isDragging = true;
+            topBrand.classList.add("dragging");
+            topBrand.setPointerCapture(event.pointerId);
+
+            const rect = topBrand.getBoundingClientRect();
+            dragOffsetX = event.clientX - rect.left;
+            dragOffsetY = event.clientY - rect.top;
+        });
+
+        topBrand.addEventListener("pointermove", function (event) {
+            if (!isDragging) return;
+
+            const x = event.clientX - dragOffsetX - document.body.offsetLeft;
+            const y = event.clientY - dragOffsetY - 40;
+
+            setBrandPosition(Math.max(12, x), Math.max(8, y));
+        });
+
+        topBrand.addEventListener("pointerup", function () {
+            if (!isDragging) return;
+            isDragging = false;
+            topBrand.classList.remove("dragging");
+            resetBrandPosition();
+        });
+
+        topBrand.addEventListener("pointerleave", function () {
+            if (!isDragging) return;
+            isDragging = false;
+            topBrand.classList.remove("dragging");
+            resetBrandPosition();
+        });
+
+        topBrand.addEventListener("click", function () {
+            bounceBrand();
+        });
+
+        topBrand.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                bounceBrand();
+            }
+        });
+
+        themeToggle.addEventListener("change", function () {
+            if (themeToggle.checked) {
+                document.body.classList.add("dark-mode");
+            } else {
+                document.body.classList.remove("dark-mode");
+            }
+        });
+
+        function openImageModal(clickedImage) {
+            modalImage.src = clickedImage.src;
+            modalImage.alt = clickedImage.alt;
+            imageModal.classList.add("show");
+        }
+
+        profileImage.addEventListener("click", function () {
+            openImageModal(profileImage);
+        });
+
+        galleryImages.forEach(function (image) {
+            image.addEventListener("click", function () {
+                openImageModal(image);
+            });
+        });
+
+        modalClose.addEventListener("click", function () {
+            imageModal.classList.remove("show");
+        });
+
+        imageModal.addEventListener("click", function (event) {
+            if (event.target === imageModal) {
+                imageModal.classList.remove("show");
+            }
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && imageModal.classList.contains("show")) {
+                imageModal.classList.remove("show");
+            }
+        });
+    </script>
+
+</body>
+</html>
